@@ -133,5 +133,12 @@ public class ListaLigada{
             }
         }
     }
-    
+
+    public void setHead(Node<Integer> head) {
+        this.head = head;
+    }
+
+    public Node<Integer> getHead() {
+        return head;
+    }        
 }
