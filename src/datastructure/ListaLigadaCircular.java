@@ -11,7 +11,6 @@ package datastructure;
  */
 public class ListaLigadaCircular extends ListaLigada{
 
-    @Override
     public void add(Integer item) {
         Node<Integer> novoElo = new Node<>(item); //Cria novo elo para lista
         if (this.isEmpty()){ //Se a lista está vazia

@@ -16,7 +16,7 @@ public class DataStructure {
      */
     public static void main(String[] args) {
 
-        Pilha p = new Pilha();
+        PilhaDinamica p = new PilhaDinamica();
         p.push(10);
         p.push(20);
         p.push(30);
