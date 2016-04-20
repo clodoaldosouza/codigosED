@@ -16,16 +16,13 @@ public class DataStructure {
      */
     public static void main(String[] args) {
 
-        PilhaDinamica p = new PilhaDinamica();
-        p.push(10);
-        p.push(20);
-        p.push(30);
-        p.push(123);
-        System.out.println(p.toString());        
-        System.out.println();
-        System.out.println(Integer.toString(p.pop()));
-        System.out.println();
-        System.out.println(p.toString());
+        Fila<Integer> f = new Fila<>();
+        f.enfileirar(1);
+        f.enfileirar(5);
+        f.enfileirar(11);
+        System.out.println(f.toString());
+        System.out.println(f.desenfileirar().toString());
+        System.out.println(f.toString());
     }
     
 }

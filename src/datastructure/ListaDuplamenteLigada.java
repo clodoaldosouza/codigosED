@@ -85,7 +85,9 @@ public class ListaDuplamenteLigada<T>{
         if (posicao == 0){ //Se posicao for igual a 0
             removeItem = this.head; //Item removido recebe o head
             this.head = removeItem.getProximo(); //Head passa a ser o próximo do item removido
-            this.head.setAnterior(null); //Aponta o anterior do head para null
+            if (this.head != null){
+                this.head.setAnterior(null); //Aponta o anterior do head para null
+            }
         }else{
             
             removeItem = this.get(posicao); //Pega o item a ser removido
