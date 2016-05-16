@@ -57,7 +57,7 @@ public class Lista <T>{
     
     public int indexOf(T item){
         for(int i = 0;i<this.tamanho;i++){
-            if (this.get(i) == item){
+            if (this.get(i).equals(item)){
                 return i;
             }
         }

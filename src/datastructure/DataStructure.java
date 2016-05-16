@@ -16,13 +16,16 @@ public class DataStructure {
      */
     public static void main(String[] args) {
 
-        Fila<Integer> f = new Fila<>();
-        f.enfileirar(1);
-        f.enfileirar(5);
-        f.enfileirar(11);
-        System.out.println(f.toString());
-        System.out.println(f.desenfileirar().toString());
-        System.out.println(f.toString());
+        Arvore a = new Arvore();
+        a.adicionar(30);
+        a.adicionar(25);
+        a.adicionar(60);
+        a.adicionar(12);
+        a.adicionar(26);
+        a.adicionar(58);
+        a.adicionar(66);
+        a.adicionar(42);
+        
     }
     
 }
