@@ -56,11 +56,11 @@ public class Arvore {
     
     private int calculaAltura(No n, int altura){
         if (n == null){
-            return altura;
+            return altura - 1;
         }else{
             int arvoreEsquerda = this.calculaAltura(n.getEsquerdo(),altura + 1);
             int arvoreDireita = this.calculaAltura(n.getDireito(), altura + 1);
-            if (arvoreEsquerda > arvoreEsquerda){
+            if (arvoreEsquerda > arvoreDireita){
                 return arvoreEsquerda;
             }else{
                 return arvoreDireita;
@@ -68,13 +68,21 @@ public class Arvore {
         }
     }
     
-    public void preOrdem(No n){
+    public No preOrdem(No n,int item){
         if (n != null){
-            System.out.print(n.getNumero());
-            System.out.print(" - ");
-            this.preOrdem(n.getEsquerdo());
-            this.preOrdem(n.getDireito());
+            if (n.getNumero() == item){
+                return n;
+            }else{
+                No retorno = null;
+                retorno = this.preOrdem(n.getEsquerdo(),item);
+                if (retorno == null){
+                    return this.preOrdem(n.getDireito(), item);
+                }else{
+                    return retorno;
+                }
+            }
         }
+        return n;
     }
     
     public void inOrdem(No n){
@@ -95,13 +103,13 @@ public class Arvore {
         }
     }
     
-    public void largura(){
+    public String largura(){
+        String larguraResult = "";
         Fila<No> f = new Fila<>();
         f.enfileirar(this.raiz);
         while(!f.vazio()){
             No n = f.desenfileirar();
-            System.out.print(n.getNumero());
-            System.out.print(" - ");
+            larguraResult = Integer.toString(n.getNumero()) + " - ";
             if (n.getEsquerdo() != null){
                 f.enfileirar(n.getEsquerdo());
             }
@@ -109,6 +117,7 @@ public class Arvore {
                 f.enfileirar(n.getDireito());
             }
         }
+        return larguraResult;
     }
     
     public No rotacaoDireita(No n){
@@ -150,22 +159,35 @@ public class Arvore {
         this.raiz = n;
     }
     
-    public void mostrarArvore(int nivel,No n){
+    public void mostrarArvore(int nivel,No n,String label){
         for(int i = 0;i<nivel;i++){
             System.out.print(" ");
         }
         System.out.print(n.getNumero());
-        System.out.println("");
+        System.out.println(" " + label);
         if (n.getEsquerdo() != null){
-            this.mostrarArvore(nivel + 1, n.getEsquerdo());
+            this.mostrarArvore(nivel + 1, n.getEsquerdo(),"Filho Esquerdo");
         }
         if (n.getDireito() != null){
-            this.mostrarArvore(nivel + 1, n.getDireito());
+            this.mostrarArvore(nivel + 1, n.getDireito(),"Filho Direito");
         }
     }
     
     public void cleanTree(){
         this.raiz = null;
+    }
+    
+    public No busca(int n, No no){
+        if (no == null){
+            return no;
+        }
+        if (no.getNumero() == n){
+            return no;
+        }else if (n > no.getNumero()){
+            return this.busca(n, no.getDireito());
+        }else{
+            return this.busca(n, no.getEsquerdo());
+        }
     }
     
 }

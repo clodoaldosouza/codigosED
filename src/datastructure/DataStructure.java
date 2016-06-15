@@ -15,16 +15,18 @@ public class DataStructure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        Arvore a = new Arvore();
-        a.adicionar(30);
-        a.adicionar(25);
-        a.adicionar(60);
-        a.adicionar(12);
-        a.adicionar(26);
-        a.adicionar(58);
-        a.adicionar(66);
-        a.adicionar(42);
+                
+        
+        HashTable ht = new HashTable();
+        ht.adicionar(383);
+        ht.adicionar(487);
+        ht.adicionar(235);
+        ht.adicionar(527);
+        ht.adicionar(203);
+        ht.adicionar(510);
+        
+        System.out.println(ht.toString());
+        System.out.println(ht.getItemChave(487));
         
     }
     
